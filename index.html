@@ -614,16 +614,6 @@ Reject <span class="math inline">H_0</span> once <span class="math inline">S_t \
 <p>“Stays the same or reduces in value” on average</p>
 </div></div>
 </section>
-<section id="martingales-origin" class="slide level2">
-<h2>Martingales: origin</h2>
-<!-- https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p -->
-
-<img data-src="images/18_17_000138_image_access_800.jpg" class="quarto-figure quarto-figure-left r-stretch"></section>
-<section id="the-core-principle" class="slide level2">
-<h2>The core principle</h2>
-<p>Optional stopping is safe when your test statistic<br>
-is a <strong>supermartingale under the null</strong>.</p>
-</section>
 <section id="villes-inequality" class="slide level2">
 <h2>Ville’s inequality</h2>
 <p>Let <span class="math inline">S_0, S_1, S_2, \dots</span> be a <strong>test supermartingale</strong> (TSM):<br>
@@ -763,71 +753,6 @@ has non-negative terms (<span class="math inline">S_i \geqslant 0</span>) and st
 <li>Sample ballot papers, infer the winners</li>
 <li>Fast &amp; cheap – via sequential tests</li>
 </ul>
-</div>
-</section>
-<section id="audit-outcomes" class="slide level2">
-<h2>Audit outcomes</h2>
-<p>Possible decisions:</p>
-<ul>
-<li><span class="emoji" data-emoji="trophy">🏆</span> <strong>Certify</strong> the reported election result</li>
-<li><span class="emoji" data-emoji="hourglass">⌛</span> Request a <strong>recount</strong> of the votes</li>
-</ul>
-<div class="fragment">
-<p>Consequences:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Certify</th>
-<th style="text-align: center;">Recount</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Reported result is wrong</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
-</tr>
-<tr class="even">
-<td>Reported result is correct</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="audits-as-tests" class="slide level2 smaller">
-<h2>Audits as tests</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Reject <span class="math inline">H_0</span> (certify)</th>
-<th style="text-align: center;">Do not reject <span class="math inline">H_0</span> (recount)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">H_0\colon</span> Reported result is wrong</td>
-<td style="text-align: center;">Type 1 error <span class="emoji" data-emoji="x">❌</span></td>
-<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">H_1\colon</span> Reported result is correct</td>
-<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
-<td style="text-align: center;">Type 2 error <span class="emoji" data-emoji="x">❌</span></td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p>Type 1 error = Wrong democractic outcome</p>
-<p>Type 2 error = Waste of resources (but no change of outcome)</p>
 </div>
 </section>
 <section id="two-candidate-example" class="slide level2">
@@ -1093,6 +1018,11 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 </div>
 </div></div>
 </section>
+<section id="martingales-origin" class="slide level2">
+<h2>Martingales: origin</h2>
+<!-- https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p -->
+
+<img data-src="images/18_17_000138_image_access_800.jpg" class="quarto-figure quarto-figure-left r-stretch"></section>
 <section id="martingales-origin-1" class="slide level2">
 <h2>Martingales: origin</h2>
 <p>“Martingales”: <span class="emoji" data-emoji="game_die">🎲</span> gambling strategies from 18th century France <span class="emoji" data-emoji="clubs">♣️</span></p>
@@ -1233,6 +1163,69 @@ Sequential hypothesis test <span class="math inline">\longleftrightarrow</span> 
 <li>Trustworthy paper ballots</li>
 <li>Ability to sample randomly from the ballots</li>
 </ul>
+</section>
+<section id="audit-outcomes" class="slide level2">
+<h2>Audit outcomes</h2>
+<p>Possible decisions:</p>
+<ul>
+<li><span class="emoji" data-emoji="trophy">🏆</span> <strong>Certify</strong> the reported election result</li>
+<li><span class="emoji" data-emoji="hourglass">⌛</span> Request a <strong>recount</strong> of the votes</li>
+</ul>
+<div class="fragment">
+<p>Consequences:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Certify</th>
+<th style="text-align: center;">Recount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reported result is wrong</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
+</tr>
+<tr class="even">
+<td>Reported result is correct</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="x">❌</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="audits-as-tests" class="slide level2 smaller">
+<h2>Audits as tests</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Reject <span class="math inline">H_0</span> (certify)</th>
+<th style="text-align: center;">Do not reject <span class="math inline">H_0</span> (recount)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">H_0\colon</span> Reported result is wrong</td>
+<td style="text-align: center;">Type 1 error <span class="emoji" data-emoji="x">❌</span></td>
+<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">H_1\colon</span> Reported result is correct</td>
+<td style="text-align: center;"><span class="emoji" data-emoji="white_check_mark">✅</span></td>
+<td style="text-align: center;">Type 2 error <span class="emoji" data-emoji="x">❌</span></td>
+</tr>
+</tbody>
+</table>
+<p>Type 1 error = Wrong democractic outcome</p>
+<p>Type 2 error = Waste of resources (but no change of outcome)</p>
 </section>
 <section id="australian-voting-systems" class="slide level2">
 <h2>Australian voting systems <span class="emoji" data-emoji="australia">🇦🇺</span></h2>

@@ -488,17 +488,6 @@ draw_arrows(tail(ns, 1), tail(s1, 1),
 :::
 :::::
 
-## Martingales: origin
-
-<!-- https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p -->
-
-![](images/18_17_000138_image_access_800.jpg){fig-align="left"}
-
-## The core principle
-
-Optional stopping is safe when your test statistic\
-is a **supermartingale under the null**.
-
 ## Ville's inequality
 
 Let $S_0, S_1, S_2, \dots$ be a **test supermartingale** (TSM):\
@@ -663,35 +652,6 @@ Alternative: **statistics!** :bar_chart:
 
 -   Sample ballot papers, infer the winners
 -   Fast & cheap -- via sequential tests
-
-## Audit outcomes
-
-Possible decisions:
-
--   :trophy: **Certify** the reported election result
--   :hourglass: Request a **recount** of the votes
-
-. . .
-
-Consequences:
-
-|                            |      Certify       |      Recount       |
-|----------------------------|:------------------:|:------------------:|
-| Reported result is wrong   |        :x:         | :white_check_mark: |
-| Reported result is correct | :white_check_mark: |        :x:         |
-
-## Audits as tests {.smaller}
-
-|   | Reject $H_0$ (certify) | Do not reject $H_0$ (recount) |
-|----|:--:|:--:|
-| $H_0\colon$ Reported result is wrong | Type 1 error :x: | :white_check_mark: |
-| $H_1\colon$ Reported result is correct | :white_check_mark: | Type 2 error :x: |
-
-. . .
-
-Type 1 error = Wrong democractic outcome
-
-Type 2 error = Waste of resources (but no change of outcome)
 
 ## Two-candidate example
 
@@ -1037,6 +997,12 @@ axis(4, c(p0, p1), expression(p[0], p[1]), las = 1)
 
 ## Martingales: origin
 
+<!-- https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p -->
+
+![](images/18_17_000138_image_access_800.jpg){fig-align="left"}
+
+## Martingales: origin
+
 "Martingales": :game_die: gambling strategies from 18th century France :clubs:
 
 These strategies cannot "beat the house"
@@ -1195,6 +1161,33 @@ Source: <https://www.dkriesel.com/>
 
 -   Trustworthy paper ballots
 -   Ability to sample randomly from the ballots
+
+## Audit outcomes
+
+Possible decisions:
+
+-   :trophy: **Certify** the reported election result
+-   :hourglass: Request a **recount** of the votes
+
+. . .
+
+Consequences:
+
+|                            |      Certify       |      Recount       |
+|----------------------------|:------------------:|:------------------:|
+| Reported result is wrong   |        :x:         | :white_check_mark: |
+| Reported result is correct | :white_check_mark: |        :x:         |
+
+## Audits as tests {.smaller}
+
+|   | Reject $H_0$ (certify) | Do not reject $H_0$ (recount) |
+|----|:--:|:--:|
+| $H_0\colon$ Reported result is wrong | Type 1 error :x: | :white_check_mark: |
+| $H_1\colon$ Reported result is correct | :white_check_mark: | Type 2 error :x: |
+
+Type 1 error = Wrong democractic outcome
+
+Type 2 error = Waste of resources (but no change of outcome)
 
 ## Australian voting systems :australia:
 
