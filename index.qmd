@@ -925,6 +925,11 @@ print](https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p) is freely
 available from the Digital Commonwealth; the original sits at the Boston Public
 Library.
 
+## Jokes :smile:
+
+The "safe stats / abstinence" joke was borrowed from [Hadley
+Wickham](https://nhorton.people.amherst.edu/mererenovation/17_Wickham.PDF).
+
 # Appendix
 
 ## SPRT for binary data
