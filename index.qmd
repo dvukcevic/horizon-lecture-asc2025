@@ -750,29 +750,25 @@ Can test using ALPHA.
 
 ## Hypothesis decompositions
 
-Unions: $$H_0 = H_0^1 \cup H_0^2 \cup \dots \cup H_0^m$$
-$$\rightarrow \text{Need to reject every } H_0^j$$
+Unions: $$H = H^1 \cup H^2 \cup \dots \cup H^m$$
+$$\text{Reject every } H^j \Rightarrow \text{Reject } H$$
 
 . . .
 
-Intersections: $$H_0 = H_0^1 \cap H_0^2 \cap \dots \cap H_0^m$$
-$$\rightarrow \text{Need to reject at least one } H_0^j$$
+Intersections: $$H = H^1 \cap H^2 \cap \dots \cap H^m$$
+$$\text{Reject at least one } H^j \Rightarrow \text{Reject } H$$
 
-. . .
-
-Multiple testing problem!
-
-## Adaptive weighting
+## Adaptive weighting (for intersections)
 
 ::::: columns
 ::: {.column width="50%"}
-**Base TSM**: for $H_0^j$
+**Base TSM**: for $H^j$
 
 $$S_{j,t} = \prod_{i = 1}^t s_{j, i}$$
 :::
 
 ::: {.column width="50%"}
-**Intersection TSM**: for $H_0$
+**Intersection TSM**: for $H$
 
 $$S_t = \prod_{i = 1}^t \frac{\sum_j w_{j, i} \, s_{j, i}}{\sum_jw_{j, i}}$$
 :::

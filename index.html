@@ -844,22 +844,19 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 </section>
 <section id="hypothesis-decompositions" class="slide level2">
 <h2>Hypothesis decompositions</h2>
-<p>Unions: <span class="math display">H_0 = H_0^1 \cup H_0^2 \cup \dots \cup H_0^m</span> <span class="math display">\rightarrow \text{Need to reject every } H_0^j</span></p>
+<p>Unions: <span class="math display">H = H^1 \cup H^2 \cup \dots \cup H^m</span> <span class="math display">\text{Reject every } H^j \Rightarrow \text{Reject } H</span></p>
 <div class="fragment">
-<p>Intersections: <span class="math display">H_0 = H_0^1 \cap H_0^2 \cap \dots \cap H_0^m</span> <span class="math display">\rightarrow \text{Need to reject at least one } H_0^j</span></p>
-</div>
-<div class="fragment">
-<p>Multiple testing problem!</p>
+<p>Intersections: <span class="math display">H = H^1 \cap H^2 \cap \dots \cap H^m</span> <span class="math display">\text{Reject at least one } H^j \Rightarrow \text{Reject } H</span></p>
 </div>
 </section>
-<section id="adaptive-weighting" class="slide level2">
-<h2>Adaptive weighting</h2>
+<section id="adaptive-weighting-for-intersections" class="slide level2">
+<h2>Adaptive weighting (for intersections)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Base TSM</strong>: for <span class="math inline">H_0^j</span></p>
+<p><strong>Base TSM</strong>: for <span class="math inline">H^j</span></p>
 <p><span class="math display">S_{j,t} = \prod_{i = 1}^t s_{j, i}</span></p>
 </div><div class="column" style="width:50%;">
-<p><strong>Intersection TSM</strong>: for <span class="math inline">H_0</span></p>
+<p><strong>Intersection TSM</strong>: for <span class="math inline">H</span></p>
 <p><span class="math display">S_t = \prod_{i = 1}^t \frac{\sum_j w_{j, i} \, s_{j, i}}{\sum_jw_{j, i}}</span></p>
 </div></div>
 <div class="fragment">
