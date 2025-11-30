@@ -444,14 +444,6 @@ And another 20 more: p = <strong>0.049</strong> <span class="emoji" data-emoji="
 <h1>Sequential analysis</h1>
 
 </section>
-<section id="key-features" class="slide level2">
-<h2>Key features</h2>
-<ul>
-<li>Analyse data “as you go”</li>
-<li>Sample size not fixed in advance</li>
-<li>Stop once there is “enough evidence”</li>
-</ul>
-</section>
 <section id="sequential-probability-ratio-test-sprt" class="slide level2">
 <h2>Sequential probability ratio test (SPRT)</h2>
 <div class="columns">
@@ -469,8 +461,8 @@ And another 20 more: p = <strong>0.049</strong> <span class="emoji" data-emoji="
 <div class="column" style="width:70%;">
 <p>Data (<span class="math inline">X_i</span>): <span class="math display">0, 0, 1, 1, 0, 1, \dots</span></p>
 <p>Hypotheses: <span class="math display">\begin{cases}
-    H_0\colon p = p_0 = 0.5 \\
-    H_1\colon p = p_1 = 0.7
+    H_0\colon p = p_0 \\
+    H_1\colon p = p_1
     \end{cases}</span></p>
 </div><div class="column" style="width:30%;">
 <!-- https://www.wannapik.com/vectors/3720 -->
@@ -492,18 +484,18 @@ And another 20 more: p = <strong>0.049</strong> <span class="emoji" data-emoji="
 <img data-src="index_files/figure-revealjs/sprt-binary-example-statistic-1.png" width="576" class="r-stretch"></section>
 <section id="binary-data-example-3" class="slide level2">
 <h2>Binary data example</h2>
-<ul>
-<li><p>Stopping rule: <span class="math display">\begin{cases}
-S_t \leqslant \frac{\beta}{1 - \alpha} &amp; \Rightarrow \text{accept } H_0 \\
-S_t \geqslant \frac{1 - \beta}{\alpha} &amp; \Rightarrow \text{accept } H_1 \\
-\text{otherwise} &amp; \Rightarrow \text{keep sampling}
-\end{cases}</span></p></li>
-<li><p>Error control:</p>
+<p>Stopping rule: <span class="math display">\begin{cases}
+    S_t \leqslant \frac{\beta}{1 - \alpha} &amp; \Rightarrow \text{accept } H_0 \\
+    S_t \geqslant \frac{1 - \beta}{\alpha} &amp; \Rightarrow \text{accept } H_1 \\
+    \text{otherwise} &amp; \Rightarrow \text{keep sampling}
+    \end{cases}</span></p>
+<div class="fragment">
+<p>Error control:</p>
 <ul>
 <li>Type 1 error <span class="math inline">\leqslant \alpha</span></li>
 <li>Type 2 error <span class="math inline">\leqslant \beta</span></li>
-</ul></li>
 </ul>
+</div>
 </section>
 <section id="binary-data-example-4" class="slide level2">
 <h2>Binary data example</h2>
@@ -627,18 +619,6 @@ Reject <span class="math inline">H_0</span> once <span class="math inline">S_t \
 <!-- https://ark.digitalcommonwealth.org/ark:/50959/2z111h79p -->
 
 <img data-src="images/18_17_000138_image_access_800.jpg" class="quarto-figure quarto-figure-left r-stretch"></section>
-<section id="martingales-origin-1" class="slide level2">
-<h2>Martingales: origin</h2>
-<p>“Martingales”: <span class="emoji" data-emoji="game_die">🎲</span> gambling strategies from 18th century France <span class="emoji" data-emoji="clubs">♣️</span></p>
-<div class="fragment">
-<p>These strategies cannot “beat the house”</p>
-<p><span class="math inline">\Rightarrow</span> no guaranteed profit<br>
-<span class="math inline">\Rightarrow</span> at best, a “fair” game</p>
-</div>
-<div class="fragment">
-<p><em>Martingales</em> (in mathematics) represent the <span class="emoji" data-emoji="moneybag">💰</span> <strong>wealth over time</strong> of a gambler playing a <strong>fair game</strong>.</p>
-</div>
-</section>
 <section id="the-core-principle" class="slide level2">
 <h2>The core principle</h2>
 <p>Optional stopping is safe when your test statistic<br>
@@ -646,15 +626,10 @@ is a <strong>supermartingale under the null</strong>.</p>
 </section>
 <section id="villes-inequality" class="slide level2">
 <h2>Ville’s inequality</h2>
-<p>Let <span class="math inline">S_0, S_1, S_2, \dots</span> be a <strong>test supermartingale</strong> (TSM): has non-negative terms (<span class="math inline">S_i \geqslant 0</span>) and starting value <span class="math inline">S_0 = 1</span>.</p>
+<p>Let <span class="math inline">S_0, S_1, S_2, \dots</span> be a <strong>test supermartingale</strong> (TSM):<br>
+has non-negative terms (<span class="math inline">S_i \geqslant 0</span>) and starting value <span class="math inline">S_0 = 1</span>.</p>
 <div class="fragment">
 <p>For any <span class="math inline">\alpha &gt; 0</span>, <span class="math display">\Pr\left(\max_t (S_t) \geqslant \frac{1}{\alpha}\right) \leqslant \alpha</span></p>
-</div>
-<div class="fragment">
-<p>In other words:</p>
-<blockquote>
-<p>The probability that your wealth <strong>ever</strong> exceeds <span class="math inline">1 / \alpha</span> is at most <span class="math inline">\alpha</span>.</p>
-</blockquote>
 </div>
 </section>
 <section id="tests-based-on-martingales" class="slide level2">
@@ -686,21 +661,6 @@ is a <strong>supermartingale under the null</strong>.</p>
 </div>
 </div></div>
 </section>
-<section id="tests-based-on-martingales-1" class="slide level2">
-<h2>Tests based on martingales</h2>
-<p>Decision rule:</p>
-<ul>
-<li>Reject <span class="math inline">H_0</span> if <span class="math inline">S_t \geqslant 1 / \alpha</span></li>
-<li>Otherwise keep sampling (or give up)</li>
-</ul>
-<div class="fragment">
-<p>Ville’s inequality <span class="math inline">\rightarrow</span> <strong>anytime-valid</strong> type I error control</p>
-<p>Growth rate under <span class="math inline">H_1</span> <span class="math inline">\rightarrow</span> statistical efficiency (“power”)</p>
-</div>
-<div class="fragment">
-<p>SPRT: likelihood ratio is a martingale under <span class="math inline">H_0</span></p>
-</div>
-</section>
 <section id="beyond-simple-hypotheses" class="slide level2">
 <h2>Beyond simple hypotheses</h2>
 <p><span class="math display">H_0\colon \theta = \theta_0 \quad \text{vs} \quad
@@ -713,29 +673,19 @@ is a <strong>supermartingale under the null</strong>.</p>
 <h2>Beyond simple hypotheses</h2>
 <p><span class="math display">H_0\colon \theta = \theta_0 \quad \text{vs} \quad
   H_1\colon \theta \in \mathcal{A}</span></p>
-<p>Mixture strategy: <span class="math display">S_t = S_{t-1} \times \frac{\int_{\mathcal{A}} f(X_t \mid \theta) \, g_t(\theta) \, d\theta}{f(X_t \mid \theta_0)}</span> <span class="math display">g_t(\theta) \text{ is a distribution over } \mathcal{A}</span></p>
-</section>
-<section id="new-concepts-terminology" class="slide level2">
-<h2>New concepts &amp; terminology</h2>
-<ul>
-<li><strong>E-value</strong></li>
-<li>E-variable</li>
-<li>E-process</li>
-<li>Anytime-valid p-values</li>
-<li><strong>Confidence sequences</strong> (anytime-valid confidence intervals)</li>
-</ul>
+<p>Mixture strategy: <span class="math display">S_t = S_{t-1} \times \frac{\int_{\mathcal{A}} f(X_t \mid \theta) \, g_t(\theta) \, d\theta}{f(X_t \mid \theta_0)}</span> <span class="math display">g_t(\theta) \text{ is a distribution over } \mathcal{A}</span> <span class="math display">g_t(\theta) \text{ can depend on } X_1, X_2, \dots, X_{t-1}</span></p>
 </section>
 <section id="safe-inference" class="slide level2">
 <h2>Safe inference</h2>
-<ul>
-<li><p>SAVI: “safe, anytime-valid inference”</p>
+<p>SAVI: “safe, anytime-valid inference”</p>
 <ul>
 <li>Stopping rules <span class="emoji" data-emoji="stop_button">⏹️</span> may depend on the data</li>
 <li><em>Optional stopping</em> <span class="emoji" data-emoji="eye">👁️</span> permitted</li>
 <li><em>Optional continuation</em> <span class="emoji" data-emoji="dart">🎯</span> permitted</li>
-</ul></li>
-<li><p>Anytime-valid CIs, p-values and test decisions.</p></li>
 </ul>
+<div class="fragment">
+<p>Anytime-valid CIs, p-values and test decisions.</p>
+</div>
 <div class="fragment">
 <p>Review paper: Ramdas et al.&nbsp;(2023)</p>
 </div>
@@ -877,7 +827,7 @@ is a <strong>supermartingale under the null</strong>.</p>
 </table>
 <div class="fragment">
 <p>Type 1 error = Wrong democractic outcome</p>
-<p>Type 2 error = Waste of resources (and no change of outcome)</p>
+<p>Type 2 error = Waste of resources (but no change of outcome)</p>
 </div>
 </section>
 <section id="two-candidate-example" class="slide level2">
@@ -990,34 +940,14 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 <div class="fragment">
 <p>The weights <span class="math inline">w_{j, i}</span> can depend on data up until time <span class="math inline">i - 1</span>.</p>
 </div>
+<div class="fragment">
+<p>How to choose the weights <span class="math inline">w_{j, i}</span>?</p>
+</div>
 </section>
 <section id="weighting-schemes" class="slide level2">
 <h2>Weighting schemes</h2>
-<p>How to choose the weights <span class="math inline">w_{j, i}</span>?</p>
-<div class="fragment">
-<p>Ideas:</p>
-<ul>
-<li><strong>Largest</strong>: Put weight 1 on the largest base TSM so far.</li>
-<li><strong>Linear</strong>: Proportional to previous value, <span class="math inline">w_{j, i} = S_{j, i - 1}</span>.</li>
-<li><strong>Quadratic</strong>: Proportional to square of previous value, <span class="math inline">w_{j, i} = S_{j, i - 1}^2</span>.</li>
-<li>Many more…</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Compared about 30 schemes. “Largest” was often the best.</p>
-</div>
-</section>
-<section id="weighting-schemes-examples" class="slide level2">
-<h2>Weighting schemes examples</h2>
 
 <img data-src="images/progress.png" class="r-stretch"><div class="footer">
-<p>Ek et al.&nbsp;(2023)</p>
-</div>
-</section>
-<section id="performance" class="slide level2">
-<h2>Performance</h2>
-
-<img data-src="images/awaire-results.png" class="r-stretch"><div class="footer">
 <p>Ek et al.&nbsp;(2023)</p>
 </div>
 </section>
@@ -1054,7 +984,7 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 <ul>
 <li><strong>Early decisions</strong> are valuable</li>
 <li>Data arrive <strong>sequentially</strong></li>
-<li>Analysis plans can evolve <strong>flexibly</strong> (infrastructure, budget, etc.)</li>
+<li>Analysis plans can evolve <strong>flexibly</strong></li>
 <li>Want <strong>robustness</strong> against “peeking”</li>
 </ul>
 </section>
@@ -1077,15 +1007,15 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 </section>
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <h3 id="what-we-used-to-teach">What we used to teach</h3>
 <ul>
-<li>Fixed sample sizes are safe</li>
 <li>Peeking is dangerous</li>
+<li>Fixed sample sizes are safe</li>
 <li>Stick to the plan</li>
 </ul>
-</section>
-<section id="conclusions-1" class="slide level2">
-<h2>Conclusions</h2>
+</div><div class="column" style="width:50%;">
 <h3 id="what-we-now-know">What we now know</h3>
 <ul>
 <li>Peeking <strong>can be safe</strong></li>
@@ -1096,8 +1026,9 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 <li>robustness to unplanned analyses</li>
 </ul></li>
 </ul>
+</div></div>
 </section>
-<section id="conclusions-2" class="slide level2">
+<section id="conclusions-1" class="slide level2">
 <h2>Conclusions</h2>
 <p>Let’s modernise our statistical toolbox.</p>
 <p>We can peek, we can adapt, and we can stay valid.</p>
@@ -1137,17 +1068,6 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 <h1>Appendix</h1>
 
 </section>
-<section id="e-hacking" class="slide level2">
-<h2>“E-hacking”</h2>
-<p>Reanalysing the data with different test statistics (“betting strategies”) and only reporting the best one.</p>
-<p>This is <strong>not</strong> safe stats.</p>
-<p>Fundamental principle:</p>
-<blockquote>
-<p>Declare your bet before you play.</p>
-</blockquote>
-<p>Pre-registration is still an important tool.</p>
-<p>However, anytime-valid methods retain flexibility even after pre-specification.</p>
-</section>
 <section id="sprt-for-binary-data" class="slide level2">
 <h2>SPRT for binary data</h2>
 <div class="columns">
@@ -1173,6 +1093,24 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
 </div>
 </div></div>
 </section>
+<section id="martingales-origin-1" class="slide level2">
+<h2>Martingales: origin</h2>
+<p>“Martingales”: <span class="emoji" data-emoji="game_die">🎲</span> gambling strategies from 18th century France <span class="emoji" data-emoji="clubs">♣️</span></p>
+<p>These strategies cannot “beat the house”</p>
+<p><span class="math inline">\Rightarrow</span> no guaranteed profit<br>
+<span class="math inline">\Rightarrow</span> at best, a “fair” game</p>
+<p><em>Martingales</em> (in mathematics) represent the <span class="emoji" data-emoji="moneybag">💰</span> <strong>wealth over time</strong> of a gambler playing a <strong>fair game</strong>.</p>
+</section>
+<section id="tests-based-on-martingales-1" class="slide level2">
+<h2>Tests based on martingales</h2>
+<p>Decision rule:</p>
+<ul>
+<li>Reject <span class="math inline">H_0</span> if <span class="math inline">S_t \geqslant 1 / \alpha</span></li>
+<li>Otherwise keep sampling (or give up)</li>
+</ul>
+<p>Ville’s inequality <span class="math inline">\rightarrow</span> <strong>anytime-valid</strong> type I error control</p>
+<p>Growth rate under <span class="math inline">H_1</span> <span class="math inline">\rightarrow</span> statistical efficiency (“power”)</p>
+</section>
 <section id="the-sprt-is-a-martingale" class="slide level2">
 <h2>The SPRT is a martingale</h2>
 <ul>
@@ -1180,6 +1118,16 @@ candidates in the set <span class="math inline">\mathcal{S}</span> remain standi
   = \int \frac{f_1(x)}{f_0(x)} f_0(x) \, dx
   = \int f_1(x) \, dx = 1</span></p></li>
 <li><p>Martingales generalise likelihood ratios.</p></li>
+</ul>
+</section>
+<section id="new-concepts-terminology" class="slide level2">
+<h2>New concepts &amp; terminology</h2>
+<ul>
+<li><strong>E-value</strong></li>
+<li>E-variable</li>
+<li>E-process</li>
+<li>Anytime-valid p-values</li>
+<li><strong>Confidence sequences</strong> (anytime-valid confidence intervals)</li>
 </ul>
 </section>
 <section id="e-variable" class="slide level2">
@@ -1239,6 +1187,17 @@ Sequential hypothesis test <span class="math inline">\longleftrightarrow</span> 
 </div>
 </div></div>
 </section>
+<section id="e-hacking" class="slide level2">
+<h2>“E-hacking”</h2>
+<p>Reanalysing the data with different test statistics (“betting strategies”) and only reporting the best one.</p>
+<p>This is <strong>not</strong> safe stats.</p>
+<p>Fundamental principle:</p>
+<blockquote>
+<p>Declare your bet before you play.</p>
+</blockquote>
+<p>Pre-registration is still an important tool.</p>
+<p>However, anytime-valid methods retain flexibility even after pre-specification.</p>
+</section>
 <section id="usa-horror-stories" class="slide level2">
 <h2>USA horror stories</h2>
 <ul>
@@ -1264,7 +1223,9 @@ Sequential hypothesis test <span class="math inline">\longleftrightarrow</span> 
 </figure>
 </div>
 </div></div>
-<p>Anoter example: hole-punch filling</p>
+<div class="footer">
+<p>Source: <a href="https://www.dkriesel.com/" class="uri">https://www.dkriesel.com/</a></p>
+</div>
 </section>
 <section id="prerequisites-for-an-election-audit" class="slide level2">
 <h2>Prerequisites for an election audit</h2>
@@ -1291,6 +1252,25 @@ Sequential hypothesis test <span class="math inline">\longleftrightarrow</span> 
 <li>Most state upper house elections</li>
 </ul>
 </div></div>
+</section>
+<section id="awaire-weighting-schemes" class="slide level2">
+<h2>AWAIRE weighting schemes</h2>
+<p>How to choose the weights <span class="math inline">w_{j, i}</span>?</p>
+<p>Ideas:</p>
+<ul>
+<li><strong>Largest</strong>: Put weight 1 on the largest base TSM so far.</li>
+<li><strong>Linear</strong>: Proportional to previous value, <span class="math inline">w_{j, i} = S_{j, i - 1}</span>.</li>
+<li><strong>Quadratic</strong>: Proportional to square of previous value, <span class="math inline">w_{j, i} = S_{j, i - 1}^2</span>.</li>
+<li>Many more…</li>
+</ul>
+<p>Compared about 30 schemes. “Largest” was often the best.</p>
+</section>
+<section id="awaire-performance" class="slide level2">
+<h2>AWAIRE performance</h2>
+
+<img data-src="images/awaire-results.png" class="r-stretch"><div class="footer">
+<p>Ek et al.&nbsp;(2023)</p>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

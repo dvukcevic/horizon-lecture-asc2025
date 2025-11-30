@@ -89,12 +89,6 @@ Can we design statistical methods that\
 
 # Sequential analysis
 
-## Key features
-
--   Analyse data "as you go"
--   Sample size not fixed in advance
--   Stop once there is "enough evidence"
-
 ## Sequential probability ratio test (SPRT)
 
 ::::: columns
@@ -118,8 +112,8 @@ Birth of sequential analysis
 Data ($X_i$): $$0, 0, 1, 1, 0, 1, \dots$$
 
 Hypotheses: $$\begin{cases}
-    H_0\colon p = p_0 = 0.5 \\
-    H_1\colon p = p_1 = 0.7
+    H_0\colon p = p_0 \\
+    H_1\colon p = p_1
     \end{cases}$$
 :::
 
@@ -186,16 +180,18 @@ points(tail(ns, 1), tail(s, 1), pch = 19, cex = 1.5, col = "blue")
 
 ## Binary data example
 
--   Stopping rule: $$\begin{cases}
+Stopping rule: $$\begin{cases}
     S_t \leqslant \frac{\beta}{1 - \alpha} & \Rightarrow \text{accept } H_0 \\
     S_t \geqslant \frac{1 - \beta}{\alpha} & \Rightarrow \text{accept } H_1 \\
     \text{otherwise} & \Rightarrow \text{keep sampling}
     \end{cases}$$
 
--   Error control:
+. . .
 
-    -   Type 1 error $\leqslant \alpha$
-    -   Type 2 error $\leqslant \beta$
+Error control:
+
+-   Type 1 error $\leqslant \alpha$
+-   Type 2 error $\leqslant \beta$
 
 ## Binary data example
 
@@ -498,22 +494,6 @@ draw_arrows(tail(ns, 1), tail(s1, 1),
 
 ![](images/18_17_000138_image_access_800.jpg){fig-align="left"}
 
-## Martingales: origin
-
-"Martingales": :game_die: gambling strategies from 18th century France :clubs:
-
-. . .
-
-These strategies cannot "beat the house"
-
-$\Rightarrow$ no guaranteed profit\
-$\Rightarrow$ at best, a "fair" game
-
-. . .
-
-*Martingales* (in mathematics) represent the :moneybag: **wealth over time** of
-a gambler playing a **fair game**.
-
 ## The core principle
 
 Optional stopping is safe when your test statistic\
@@ -521,20 +501,13 @@ is a **supermartingale under the null**.
 
 ## Ville's inequality
 
-Let $S_0, S_1, S_2, \dots$ be a **test supermartingale** (TSM): has
-non-negative terms ($S_i \geqslant 0$) and starting value $S_0 = 1$.
+Let $S_0, S_1, S_2, \dots$ be a **test supermartingale** (TSM):\
+has non-negative terms ($S_i \geqslant 0$) and starting value $S_0 = 1$.
 
 . . .
 
 For any $\alpha > 0$,
 $$\Pr\left(\max_t (S_t) \geqslant \frac{1}{\alpha}\right) \leqslant \alpha$$
-
-. . .
-
-In other words:
-
-> The probability that your wealth **ever** exceeds $1 / \alpha$ is at most
-> $\alpha$.
 
 ## Tests based on martingales
 
@@ -585,23 +558,6 @@ points(tail(ns, 1), tail(s2, 1), pch = 19, cex = 1.5, col = "blue")
 :::
 :::::
 
-## Tests based on martingales
-
-Decision rule:
-
--   Reject $H_0$ if $S_t \geqslant 1 / \alpha$
--   Otherwise keep sampling (or give up)
-
-. . .
-
-Ville's inequality $\rightarrow$ **anytime-valid** type I error control
-
-Growth rate under $H_1$ $\rightarrow$ statistical efficiency ("power")
-
-. . .
-
-SPRT: likelihood ratio is a martingale under $H_0$
-
 ## Beyond simple hypotheses
 
 $$H_0\colon \theta = \theta_0 \quad \text{vs} \quad
@@ -621,24 +577,19 @@ $$H_0\colon \theta = \theta_0 \quad \text{vs} \quad
 Mixture strategy:
 $$S_t = S_{t-1} \times \frac{\int_{\mathcal{A}} f(X_t \mid \theta) \, g_t(\theta) \, d\theta}{f(X_t \mid \theta_0)}$$
 $$g_t(\theta) \text{ is a distribution over } \mathcal{A}$$
-
-## New concepts & terminology
-
--   **E-value**
--   E-variable
--   E-process
--   Anytime-valid p-values
--   **Confidence sequences** (anytime-valid confidence intervals)
+$$g_t(\theta) \text{ can depend on } X_1, X_2, \dots, X_{t-1}$$
 
 ## Safe inference
 
--   SAVI: "safe, anytime-valid inference"
+SAVI: "safe, anytime-valid inference"
 
-    -   Stopping rules :stop_button: may depend on the data
-    -   *Optional stopping* :eye: permitted
-    -   *Optional continuation* :dart: permitted
+-   Stopping rules :stop_button: may depend on the data
+-   *Optional stopping* :eye: permitted
+-   *Optional continuation* :dart: permitted
 
--   Anytime-valid CIs, p-values and test decisions.
+. . .
+
+Anytime-valid CIs, p-values and test decisions.
 
 . . .
 
@@ -732,7 +683,7 @@ Consequences:
 ## Audits as tests {.smaller}
 
 |   | Reject $H_0$ (certify) | Do not reject $H_0$ (recount) |
-|---------------------------|:-------------------------:|:-------------------------:|
+|----|:--:|:--:|
 | $H_0\colon$ Reported result is wrong | Type 1 error :x: | :white_check_mark: |
 | $H_1\colon$ Reported result is correct | :white_check_mark: | Type 2 error :x: |
 
@@ -740,7 +691,7 @@ Consequences:
 
 Type 1 error = Wrong democractic outcome
 
-Type 2 error = Waste of resources (and no change of outcome)
+Type 2 error = Waste of resources (but no change of outcome)
 
 ## Two-candidate example
 
@@ -871,35 +822,13 @@ $$S_t = \prod_{i = 1}^t \frac{\sum_j w_{j, i} \, s_{j, i}}{\sum_jw_{j, i}}$$
 
 The weights $w_{j, i}$ can depend on data up until time $i - 1$.
 
-## Weighting schemes
+. . .
 
 How to choose the weights $w_{j, i}$?
 
-. . .
-
-Ideas:
-
--   **Largest**: Put weight 1 on the largest base TSM so far.
--   **Linear**: Proportional to previous value, $w_{j, i} = S_{j, i - 1}$.
--   **Quadratic**: Proportional to square of previous value,
-    $w_{j, i} = S_{j, i - 1}^2$.
--   Many more...
-
-. . .
-
-Compared about 30 schemes. "Largest" was often the best.
-
-## Weighting schemes examples
+## Weighting schemes
 
 ![](images/progress.png)
-
-::: footer
-Ek et al. (2023)
-:::
-
-## Performance
-
-![](images/awaire-results.png)
 
 ::: footer
 Ek et al. (2023)
@@ -935,7 +864,7 @@ talk](https://virtual.oxfordabstracts.com/event/75429/submission/161)
 
 -   **Early decisions** are valuable
 -   Data arrive **sequentially**
--   Analysis plans can evolve **flexibly** (infrastructure, budget, etc.)
+-   Analysis plans can evolve **flexibly**
 -   Want **robustness** against "peeking"
 
 ## Research frontiers
@@ -955,14 +884,16 @@ Many open problems!
 
 ## Conclusions
 
+::::: columns
+::: {.column width="50%"}
 ### What we used to teach
 
--   Fixed sample sizes are safe
 -   Peeking is dangerous
+-   Fixed sample sizes are safe
 -   Stick to the plan
+:::
 
-## Conclusions
-
+::: {.column width="50%"}
 ### What we now know
 
 -   Peeking **can be safe**
@@ -970,6 +901,8 @@ Many open problems!
     -   anytime-valid inference
     -   flexibility
     -   robustness to unplanned analyses
+:::
+:::::
 
 ## Conclusions
 
@@ -1038,21 +971,6 @@ Library.
 
 # Appendix
 
-## "E-hacking"
-
-Reanalysing the data with different test statistics ("betting strategies") and
-only reporting the best one.
-
-This is **not** safe stats.
-
-Fundamental principle:
-
-> Declare your bet before you play.
-
-Pre-registration is still an important tool.
-
-However, anytime-valid methods retain flexibility even after pre-specification.
-
 ## SPRT for binary data
 
 ```{r}
@@ -1117,6 +1035,29 @@ axis(4, c(p0, p1), expression(p[0], p[1]), las = 1)
 :::
 :::::
 
+## Martingales: origin
+
+"Martingales": :game_die: gambling strategies from 18th century France :clubs:
+
+These strategies cannot "beat the house"
+
+$\Rightarrow$ no guaranteed profit\
+$\Rightarrow$ at best, a "fair" game
+
+*Martingales* (in mathematics) represent the :moneybag: **wealth over time** of
+a gambler playing a **fair game**.
+
+## Tests based on martingales
+
+Decision rule:
+
+-   Reject $H_0$ if $S_t \geqslant 1 / \alpha$
+-   Otherwise keep sampling (or give up)
+
+Ville's inequality $\rightarrow$ **anytime-valid** type I error control
+
+Growth rate under $H_1$ $\rightarrow$ statistical efficiency ("power")
+
 ## The SPRT is a martingale
 
 -   At time $t$: $$\mathbb{E}_{H_0} \left(\frac{f_1(X_t)}{f_0(X_t)}\right)
@@ -1124,6 +1065,14 @@ axis(4, c(p0, p1), expression(p[0], p[1]), las = 1)
       = \int f_1(x) \, dx = 1$$
 
 -   Martingales generalise likelihood ratios.
+
+## New concepts & terminology
+
+-   **E-value**
+-   E-variable
+-   E-process
+-   Anytime-valid p-values
+-   **Confidence sequences** (anytime-valid confidence intervals)
 
 ## E-variable
 
@@ -1193,6 +1142,21 @@ grid()
 :::
 :::::
 
+## "E-hacking"
+
+Reanalysing the data with different test statistics ("betting strategies") and
+only reporting the best one.
+
+This is **not** safe stats.
+
+Fundamental principle:
+
+> Declare your bet before you play.
+
+Pre-registration is still an important tool.
+
+However, anytime-valid methods retain flexibility even after pre-specification.
+
 ## USA horror stories
 
 -   2008: [Serious Error in Diebold Voting Software Caused Lost Ballots in
@@ -1223,7 +1187,9 @@ width="80%"}
 :::
 :::::
 
-Anoter example: hole-punch filling
+::: footer
+Source: <https://www.dkriesel.com/>
+:::
 
 ## Prerequisites for an election audit
 
@@ -1249,3 +1215,25 @@ Anoter example: hole-punch filling
 -   Most state upper house elections
 :::
 :::::
+
+## AWAIRE weighting schemes
+
+How to choose the weights $w_{j, i}$?
+
+Ideas:
+
+-   **Largest**: Put weight 1 on the largest base TSM so far.
+-   **Linear**: Proportional to previous value, $w_{j, i} = S_{j, i - 1}$.
+-   **Quadratic**: Proportional to square of previous value,
+    $w_{j, i} = S_{j, i - 1}^2$.
+-   Many more...
+
+Compared about 30 schemes. "Largest" was often the best.
+
+## AWAIRE performance
+
+![](images/awaire-results.png)
+
+::: footer
+Ek et al. (2023)
+:::
