@@ -101,7 +101,7 @@ Can we design statistical methods that\
 :::
 
 ::: {.column width="60%"}
-Developed by Wald (1945)
+Developed by [Wald (1945)](#references)
 
 Birth of sequential analysis
 :::
@@ -584,7 +584,7 @@ Anytime-valid CIs, p-values and test decisions.
 
 . . .
 
-Review paper: Ramdas et al. (2023)
+Review paper: [Ramdas et al. (2023)](#references)
 
 # Election auditing
 
@@ -679,7 +679,7 @@ $$\hat{p}_t = h(X_1, \dots, X_{t-1}) \in (0.5, 1]$$
 
 . . .
 
-"ALPHA supermartingale" (Stark 2023)
+"ALPHA supermartingale" ([Stark 2023](#references))
 
 ## Preferential elections
 
@@ -789,7 +789,7 @@ How to choose the weights $w_{j, i}$?
 ![](images/progress.png)
 
 ::: footer
-Ek et al. (2023)
+[Ek et al. (2023)](#references)
 :::
 
 ## Scaling up
@@ -874,7 +874,7 @@ Time for **safe stats** :white_heart:, not statistical abstinence.
 
 # Questions?
 
-## References :books: {.smaller}
+## References :books: {#references .smaller}
 
 -   Ek, Stark, Stuckey, Vukcevic (2023). [Adaptively Weighted Audits of
     Instant-Runoff Voting Elections:
@@ -1231,5 +1231,5 @@ Compared about 30 schemes. "Largest" was often the best.
 ![](images/awaire-results.png)
 
 ::: footer
-Ek et al. (2023)
+[Ek et al. (2023)](#references)
 :::
