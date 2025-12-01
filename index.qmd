@@ -9,6 +9,8 @@ format:
   presentation-revealjs+letterbox:
     from: markdown+emoji
     self-contained: false
+    #self-contained: true
+    #self-contained-math: true
     title-slide-attributes:
       data-background-image: "images/bg-07.png"
 ---
